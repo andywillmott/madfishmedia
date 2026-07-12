@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Production and Post Production in Sydney | Mad Fish Media</title>
+<meta name="description" content="Mad Fish Media is a production and post production studio specialised in corporate video, post production and drones, based in Sydney and operating Australia-wide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF6;
+  --paper-2:#F3F1E9;
+  --ink:#16150F;
+  --ink-soft:#4A483E;
+  --muted:#8D8A7C;
+  --hairline:#E7E4DA;
+  --gold:#B8860B;
+  --gold-bright:#F5C94A;
+  --screen:#201F19;
+  --screen-2:#2A2921;
+  --maxw:1120px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Archivo',sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.tc{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.tc .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--gold);margin-right:8px;vertical-align:1px}
+h1,h2,h3{font-weight:640;letter-spacing:-.02em;line-height:1.04;text-wrap:balance}
+.display{font-size:clamp(44px,7.2vw,88px);font-variation-settings:'wdth' 108}
+.h2{font-size:clamp(30px,4.4vw,52px);font-variation-settings:'wdth' 106}
+.h3{font-size:22px}
+.lede{font-size:clamp(17px,2vw,21px);color:var(--ink-soft);max-width:56ch}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(251,250,246,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--hairline)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand img{height:34px;width:auto}
+.nav-links{display:flex;align-items:center;gap:34px;list-style:none}
+.nav-links a{font-size:15px;font-weight:520;color:var(--ink-soft);padding:6px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.active{color:var(--ink);border-color:var(--gold)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;padding:13px 26px;border-radius:999px;border:1.5px solid var(--ink);transition:transform .15s,background .2s,color .2s;cursor:pointer}
+.btn:active{transform:scale(.97)}
+.btn-solid{background:var(--ink);color:var(--gold-bright)}
+.btn-solid:hover{background:#000}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--gold-bright)}
+.btn-nav{padding:10px 20px;font-size:14px}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.25s}
+.mobile-menu{display:none;position:fixed;inset:72px 0 0 0;background:var(--paper);z-index:49;padding:32px 24px;flex-direction:column;gap:6px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:26px;font-weight:600;padding:14px 0;border-bottom:1px solid var(--hairline)}
+.mobile-menu a.active{color:var(--gold)}
+
+section{padding:clamp(56px,9vw,110px) 0}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+
+/* hero */
+.hero{padding:clamp(64px,10vw,130px) 0 clamp(40px,6vw,70px)}
+.hero .tc{margin-bottom:22px;display:block}
+.hero h1 .gold{color:var(--gold)}
+.title-word{display:inline-block;opacity:0;transform:translateY(28px) scale(.96);filter:blur(6px);animation:wordIn .7s cubic-bezier(.16,1,.3,1) forwards}
+.title-word .per{color:var(--gold)}
+.title-word:nth-child(1){animation-delay:.05s}
+.title-word:nth-child(2){animation-delay:.28s}
+.title-word:nth-child(3){animation-delay:.51s}
+@keyframes wordIn{to{opacity:1;transform:none;filter:blur(0)}}
+@media (prefers-reduced-motion:reduce){.title-word{opacity:1;transform:none;filter:none;animation:none}}
+.hero-ctas{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;align-items:center}
+.link-arrow{font-weight:600;font-size:16px;border-bottom:2px solid var(--gold);padding-bottom:2px}
+.link-arrow:hover{color:var(--gold)}
+
+/* screen / video frames */
+.screen{background:var(--screen);border-radius:14px;position:relative;overflow:hidden;aspect-ratio:16/7;display:flex;align-items:center;justify-content:center;box-shadow:0 30px 60px -30px rgba(22,21,15,.35)}
+.screen .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35}
+.screen .slate{position:absolute;top:16px;left:20px;z-index:1;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;color:var(--gold-bright)}
+.slate .rec{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--gold-bright);margin-right:8px;animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.slate .rec{animation:none}}
+.playbtn{width:76px;height:76px;border-radius:50%;background:var(--gold-bright);color:var(--screen);border:none;font-size:24px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s}
+.playbtn:hover{transform:scale(1.08)}
+.screen .hint{position:absolute;bottom:16px;right:20px;font-family:'Space Mono',monospace;font-size:11px;color:#7a786c;letter-spacing:.1em}
+
+/* home category strip */
+.cat-strip{display:flex;align-items:center;justify-content:center;gap:14px 30px;flex-wrap:wrap;margin-top:28px}
+.cat-strip a{font-weight:600;font-size:15.5px;color:var(--ink-soft);border-bottom:2px solid transparent;padding-bottom:3px;cursor:pointer;transition:color .2s,border-color .2s}
+.cat-strip a:hover{color:var(--ink);border-color:var(--gold)}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,48px);margin-top:48px}
+.svc{border-top:3px solid var(--gold);padding-top:20px}
+.svc .tc{display:block;margin-bottom:10px;color:var(--gold)}
+.svc h3{margin-bottom:14px}
+.svc ul{list-style:none}
+.svc li{padding:7px 0;border-bottom:1px solid var(--hairline);font-size:15.5px;color:var(--ink-soft)}
+.svc li:last-child{border-bottom:none}
+
+/* about band */
+.band{background:var(--paper-2);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.band .lede{max-width:62ch;font-size:clamp(20px,2.6vw,28px);line-height:1.45;color:var(--ink);font-weight:480}
+.band .lede strong{color:var(--gold);font-weight:640}
+
+/* logos */
+.logos-title{text-align:center;margin-bottom:40px}
+.logo-wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:36px 28px;align-items:center;justify-items:center}
+.logo-wall img{max-height:52px;width:auto;filter:grayscale(1);opacity:.55;transition:filter .25s,opacity .25s}
+.logo-wall img:hover{filter:none;opacity:1}
+
+/* cta */
+.cta{background:var(--screen);color:var(--paper);border-radius:20px;padding:clamp(44px,7vw,80px) clamp(28px,6vw,72px);text-align:center}
+.cta .tc{color:var(--gold-bright)}
+.cta h2{color:#fff;margin:16px 0 18px}
+.cta p{color:#B8B5A6;max-width:52ch;margin:0 auto 32px}
+.cta .btn-solid{background:var(--gold-bright);color:var(--screen);border-color:var(--gold-bright)}
+.cta .btn-solid:hover{background:#fff;border-color:#fff}
+
+/* work grid (featured work page) */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:32px 0 10px}
+.filter{font-family:'Space Mono',monospace;font-size:12.5px;letter-spacing:.06em;border:1px solid var(--hairline);background:#fff;border-radius:999px;padding:9px 20px;color:var(--ink-soft);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.filter:hover{border-color:var(--ink)}
+.filter.active{background:var(--ink);color:var(--gold-bright);border-color:var(--ink)}
+.work-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:44px}
+.work-card.slot{background:var(--paper-2);border:1.5px dashed var(--hairline);cursor:default;display:flex;align-items:center;justify-content:center;box-shadow:none}
+.work-card.slot p{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--muted);text-align:center;padding:0 16px;line-height:1.9}
+.work-card{position:relative;border-radius:12px;overflow:hidden;background:var(--screen);aspect-ratio:16/9;cursor:pointer}
+.work-card img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .25s,transform .4s}
+.work-card:hover img{opacity:1;transform:scale(1.03)}
+.work-card .cap{position:absolute;left:0;right:0;bottom:0;padding:14px 18px;background:linear-gradient(transparent,rgba(22,21,15,.85));color:#fff;font-size:14px;font-weight:600}
+.work-card .cap span{display:block;font-family:'Space Mono',monospace;font-size:11px;color:var(--gold-bright);letter-spacing:.12em;margin-bottom:3px}
+
+/* two-col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:start}
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.tools span{font-family:'Space Mono',monospace;font-size:12.5px;letter-spacing:.06em;border:1px solid var(--hairline);background:#fff;border-radius:999px;padding:8px 16px;color:var(--ink-soft)}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(36px,6vw,80px);align-items:start}
+.contact-info .big-tel{font-size:clamp(24px,3.4vw,34px);font-weight:640;letter-spacing:-.01em;display:inline-block;margin:18px 0 10px;border-bottom:3px solid var(--gold)}
+.contact-info p{color:var(--ink-soft)}
+form{display:grid;gap:18px}
+.field label{display:block;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.field input,.field textarea{width:100%;background:#fff;border:1px solid var(--hairline);border-radius:10px;padding:14px 16px;font-family:'Archivo',sans-serif;font-size:16px;color:var(--ink);transition:border-color .2s}
+.field input:focus,.field textarea:focus{border-color:var(--gold);outline:none}
+.field textarea{min-height:140px;resize:vertical}
+.form-note{font-size:13.5px;color:var(--muted)}
+.form-status{font-size:14px;font-weight:600;display:none}
+.form-status.show{display:block}
+.form-status.ok{color:#3a7d3a}
+.form-status.err{color:#b8433a}
+
+/* footer */
+footer{border-top:1px solid var(--hairline);padding:36px 0;margin-top:20px}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot p{font-size:14px;color:var(--muted)}
+.foot .fb{font-weight:600;font-size:14px;color:var(--ink-soft)}
+.foot .fb:hover{color:var(--gold)}
+
+@media (max-width:860px){
+  .svc-grid{grid-template-columns:1fr}
+  .two-col,.contact-grid{grid-template-columns:1fr}
+  .work-grid{grid-template-columns:1fr}
+  .screen{aspect-ratio:16/9}
+}
+@media (max-width:760px){
+  .nav-links,.nav .btn-nav{display:none}
+  .burger{display:block}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="Mad Fish Media home">
+      <img src="https://static.wixstatic.com/media/f0fbe7_9f80a870cc024180b5ce25c7ab5bebc2~mv2.png/v1/fill/w_438,h_126,al_c,q_85,enc_avif,quality_auto/Mad%20Fish%20Black.png" alt="Mad Fish Media">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="showreel.html">Showreel</a></li>
+      <li><a href="featured-work.html">Featured work</a></li>
+      <li><a href="post-production.html">Post production</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a class="btn btn-solid btn-nav" href="contact.html">Get a quote</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" id="burger"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <a href="index.html" class="active">Home</a>
+    <a href="showreel.html">Showreel</a>
+    <a href="featured-work.html">Featured work</a>
+    <a href="post-production.html">Post production</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="tc reveal"><span class="dot"></span>Video production &amp; post production - Sydney based</span>
+      <h1 class="display reveal"><span class="title-word">Plan<span class="per">.</span></span> <span class="title-word">Shoot<span class="per">.</span></span> <span class="title-word gold">Edit<span class="per">.</span></span></h1>
+      <div class="hero-ctas reveal">
+        <a class="btn btn-solid" href="showreel.html">▶&nbsp; Watch the showreel</a>
+        <a class="link-arrow" href="contact.html">Start a project →</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="screen reveal">
+        <span class="slate"><span class="rec"></span>REEL — MAD FISH MEDIA</span>
+        <iframe src="https://player.vimeo.com/video/559820718?title=0&amp;byline=0&amp;portrait=0" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Mad Fish Media showreel"></iframe>
+      </div>
+      <div class="cat-strip reveal">
+        <a href="featured-work.html?cat=corporate">Corporate</a>
+        <a href="featured-work.html?cat=events">Events</a>
+        <a href="featured-work.html?cat=realestate">Real estate</a>
+        <a href="featured-work.html?cat=drone">Drone</a>
+        <a href="featured-work.html?cat=tv">TV broadcast</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:clamp(30px,5vw,60px)">
+    <div class="wrap">
+      <span class="tc reveal"><span class="dot"></span>What we do</span>
+      <h2 class="h2 reveal" style="margin-top:14px">The complete workflow</h2>
+      <p class="lede reveal" style="margin-top:16px">With a scalable team, no job is too big or too small.</p>
+      <div class="svc-grid">
+        <div class="svc reveal">
+          <span class="tc">01 — Plan</span>
+          <h3 class="h3">Pre production</h3>
+          <ul>
+            <li>Concept development</li>
+            <li>Script writing</li>
+            <li>Filming permits</li>
+            <li>Production planning</li>
+          </ul>
+        </div>
+        <div class="svc reveal">
+          <span class="tc">02 — Shoot</span>
+          <h3 class="h3">Production &amp; drones</h3>
+          <ul>
+            <li>Camera(s), lights &amp; sound</li>
+            <li>Aerial photography + videography</li>
+            <li>Live broadcast streaming for TV</li>
+            <li>Shoot &amp; direct</li>
+          </ul>
+        </div>
+        <div class="svc reveal">
+          <span class="tc">03 — Edit</span>
+          <h3 class="h3">Post production</h3>
+          <ul>
+            <li>Video editing</li>
+            <li>Colour grading</li>
+            <li>Audio editing / mixing</li>
+            <li>Voice over recording</li>
+            <li>After Effects / motion graphics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="lede reveal">Mad Fish Media is a production and post production studio based in Sydney, operating throughout Australia. Our <strong>scalable team</strong> lets us fit productions of every size — and every budget.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="logos-title reveal">
+        <span class="tc"><span class="dot"></span>Just some of the brands we've worked with</span>
+      </div>
+      <div class="logo-wall reveal">
+        <img src="https://static.wixstatic.com/media/f0fbe7_c06d2d21080c48558eec9132300d2c8c~mv2.png/v1/fill/w_244,h_140,al_c,q_85,enc_avif,quality_auto/fb.png" alt="Facebook">
+        <img src="https://static.wixstatic.com/media/f0fbe7_6ce096e5340b4238b864ef08e8856e6e~mv2.png/v1/fill/w_220,h_140,al_c,q_85,enc_avif,quality_auto/cocacola.png" alt="Coca-Cola">
+        <img src="https://static.wixstatic.com/media/f0fbe7_6c9379f452d843f2903f01e1980c4250~mv2.png/v1/fill/w_220,h_140,al_c,q_85,enc_avif,quality_auto/maccas.png" alt="McDonald's">
+        <img src="https://static.wixstatic.com/media/f0fbe7_0c57b2d49b8f4d09a71419ae8913ea80~mv2.png/v1/fill/w_236,h_140,al_c,q_85,enc_avif,quality_auto/ebay.png" alt="eBay">
+        <img src="https://static.wixstatic.com/media/f0fbe7_f265ef6e49004557bd00c9a0acdff725~mv2.png/v1/fill/w_148,h_98,al_c,q_85,enc_avif,quality_auto/intel.png" alt="Intel">
+        <img src="https://static.wixstatic.com/media/f0fbe7_98a1d46f93db428f8cb726ccd72d33ae~mv2.png/v1/fill/w_260,h_176,al_c,q_85,enc_avif,quality_auto/foxtel.png" alt="Foxtel">
+        <img src="https://static.wixstatic.com/media/f0fbe7_7a3e105686d742c58ae9d7a734349ce6~mv2.png/v1/fill/w_202,h_138,al_c,q_85,enc_avif,quality_auto/vivid.png" alt="Vivid Sydney">
+        <img src="https://static.wixstatic.com/media/f0fbe7_c23fc10f3c3e4a59b4a06862b61e9546~mv2.png/v1/fill/w_220,h_140,al_c,q_85,enc_avif,quality_auto/mountain_dew.png" alt="Mountain Dew">
+        <img src="https://static.wixstatic.com/media/f0fbe7_cbc29a5186d4470a8766f5be06af06cb~mv2.png/v1/fill/w_204,h_138,al_c,q_85,enc_avif,quality_auto/ROLLS.png" alt="Rolls-Royce">
+        <img src="https://static.wixstatic.com/media/f0fbe7_3df7d9e70ef446fd9beadbf1220ad7b0~mv2.png/v1/fill/w_176,h_98,al_c,q_85,enc_avif,quality_auto/aldi.png" alt="Aldi">
+        <img src="https://static.wixstatic.com/media/f0fbe7_ddef9a809e3c40ee96b8711780d0599f~mv2.png/v1/fill/w_268,h_176,al_c,q_85,enc_avif,quality_auto/urbangrowth.png" alt="UrbanGrowth NSW">
+        <img src="https://static.wixstatic.com/media/f0fbe7_e876e4d74bf443eea166de48a21df436~mv2.png/v1/fill/w_284,h_180,al_c,q_85,enc_avif,quality_auto/sydney_uni.png" alt="The University of Sydney">
+        <img src="https://static.wixstatic.com/media/f0fbe7_300f669ee3414db29a128a667b948f5e~mv2.png/v1/fill/w_188,h_136,al_c,q_85,enc_avif,quality_auto/fuzzy.png" alt="Fuzzy">
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="cta reveal">
+        <span class="tc"><span class="dot"></span>Let's get started</span>
+        <h2 class="h2">Got a project in mind?</h2>
+        <p>We're always happy to talk through what's possible — even if your project is still being fleshed out. We'd love to chat.</p>
+        <a class="btn btn-solid" href="contact.html">Request a call / quote</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>© Mad Fish Media · Sydney, Australia</p>
+    <a class="fb" href="https://www.facebook.com/madfishmedia.au">Facebook</a>
+  </div>
+</footer>
+
+<script>
+// Mobile menu toggle
+const menu = document.getElementById('mobileMenu');
+const burger = document.getElementById('burger');
+if (burger) {
+  burger.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+}
+
+// Scroll reveal
+const io = new IntersectionObserver(entries => entries.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Inline video play buttons (data-video="VIMEO_ID")
+document.querySelectorAll('[data-play]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.dataset.play;
+    const screen = btn.closest('.screen');
+    screen.innerHTML = `<iframe src="https://player.vimeo.com/video/${id}?autoplay=1" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Mad Fish Media video"></iframe>`;
+  });
+});
+
+// Featured work: category filtering, driven by ?cat= in the URL
+const filterButtons = document.querySelectorAll('.filter');
+if (filterButtons.length) {
+  const applyFilter = (cat) => {
+    filterButtons.forEach(b => b.classList.toggle('active', b.dataset.filter === cat));
+    document.querySelectorAll('#workGrid .work-card').forEach(c => {
+      c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
+    });
+  };
+  filterButtons.forEach(b => b.addEventListener('click', () => {
+    applyFilter(b.dataset.filter);
+    const url = new URL(location.href);
+    if (b.dataset.filter === 'all') url.searchParams.delete('cat');
+    else url.searchParams.set('cat', b.dataset.filter);
+    history.replaceState(null, '', url);
+  }));
+  const initialCat = new URLSearchParams(location.search).get('cat') || 'all';
+  applyFilter(initialCat);
+}
+
+// Contact form submission via Formspree
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const status = document.getElementById('formStatus');
+    const button = contactForm.querySelector('button[type="submit"]');
+    button.disabled = true;
+    button.textContent = 'Sending...';
+    try {
+      const res = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        status.textContent = "Thanks — we've got your message and will be in touch shortly.";
+        status.className = 'form-status show ok';
+        contactForm.reset();
+        button.textContent = 'Send message';
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (err) {
+      status.textContent = 'Something went wrong — please call us instead, or email directly.';
+      status.className = 'form-status show err';
+      button.textContent = 'Send message';
+    }
+    button.disabled = false;
+  });
+}
+
+</script>
+</body>
+</html>
