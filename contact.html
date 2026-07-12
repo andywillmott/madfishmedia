@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Mad Fish Media</title>
+<meta name="description" content="Get in touch with Mad Fish Media — Sydney video production and post production studio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="Mad Fish Media home">
+      <img src="https://static.wixstatic.com/media/f0fbe7_9f80a870cc024180b5ce25c7ab5bebc2~mv2.png/v1/fill/w_438,h_126,al_c,q_85,enc_avif,quality_auto/Mad%20Fish%20Black.png" alt="Mad Fish Media">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="showreel.html">Showreel</a></li>
+      <li><a href="featured-work.html">Featured work</a></li>
+      <li><a href="post-production.html">Post production</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <a class="btn btn-solid btn-nav" href="contact.html">Get a quote</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" id="burger"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="showreel.html">Showreel</a>
+    <a href="featured-work.html">Featured work</a>
+    <a href="post-production.html">Post production</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:40px">
+    <div class="wrap">
+      <span class="tc reveal"><span class="dot"></span>Contact</span>
+      <h1 class="display reveal" style="font-size:clamp(38px,6vw,72px)">Let's <span style="color:var(--gold)">chat.</span></h1>
+    </div>
+  </section>
+  <section style="padding-top:0">
+    <div class="wrap contact-grid">
+      <div class="contact-info reveal">
+        <span class="tc"><span class="dot"></span>Call us</span><br>
+        <a class="big-tel" href="tel:+61418120065">+61 418 120 065</a>
+        <p>Or send a message with the form — we'll get back to you quickly. Even if your project is still being fleshed out, we'd love to talk through what's possible.</p>
+        <p style="margin-top:20px"><a class="fb link-arrow" href="https://www.facebook.com/madfishmedia.au">Find us on Facebook →</a></p>
+      </div>
+      <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="f-msg">Tell us about your project</label><textarea id="f-msg" name="message" required></textarea></div>
+        <button class="btn btn-solid" type="submit" style="justify-self:start">Send message</button>
+        <p id="formStatus" class="form-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>© Mad Fish Media · Sydney, Australia</p>
+    <a class="fb" href="https://www.facebook.com/madfishmedia.au">Facebook</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
