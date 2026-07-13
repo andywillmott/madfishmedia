@@ -1,3 +1,23 @@
+// Attempt to pull real Vimeo thumbnails client-side (works from a real visitor's
+// browser even though server-side fetches get blocked as bot traffic). Falls back
+// silently to the existing icon-only card design if this fails for any reason.
+document.querySelectorAll('.work-card[data-vimeo]').forEach(card => {
+  const id = card.dataset.vimeo;
+  const hash = card.dataset.hash;
+  const vimeoUrl = `https://vimeo.com/${id}${hash ? '/' + hash : ''}`;
+  fetch(`https://vimeo.com/api/oembed.json?url=${encodeURIComponent(vimeoUrl)}`)
+    .then(res => { if (!res.ok) throw new Error('oEmbed request failed'); return res.json(); })
+    .then(data => {
+      if (!data.thumbnail_url) return;
+      const img = document.createElement('img');
+      img.src = data.thumbnail_url;
+      img.alt = data.title || 'Mad Fish Media video';
+      img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0';
+      img.onload = () => card.prepend(img);
+    })
+    .catch(() => { /* Vimeo blocked the request — keep the icon-only card, no visual change needed */ });
+});
+
 // Mobile menu toggle
 const menu = document.getElementById('mobileMenu');
 const burger = document.getElementById('burger');
@@ -41,6 +61,30 @@ if (filterButtons.length) {
   }));
   const initialCat = new URLSearchParams(location.search).get('cat') || 'all';
   applyFilter(initialCat);
+}
+
+// Lightbox video player (data-vimeo="ID" [data-hash="HASH"])
+const lightbox = document.getElementById('lightbox');
+if (lightbox) {
+  const lightboxInner = document.getElementById('lightboxInner');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const openLightbox = (id, hash) => {
+    const src = `https://player.vimeo.com/video/${id}?autoplay=1${hash ? '&h=' + hash : ''}`;
+    lightboxInner.innerHTML = `<iframe src="${src}" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen title="Mad Fish Media video"></iframe>`;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    lightboxInner.innerHTML = '';
+    document.body.style.overflow = '';
+  };
+  document.querySelectorAll('[data-vimeo]').forEach(el => {
+    el.addEventListener('click', () => openLightbox(el.dataset.vimeo, el.dataset.hash));
+  });
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 }
 
 // Contact form submission via Formspree
