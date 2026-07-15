@@ -87,7 +87,8 @@ if (lightbox) {
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 }
 
-// Contact form submission via Formspree
+// Contact form submission via Formspree — redirects to a dedicated thank-you
+// page on success so it has its own trackable URL for Google Ads conversion goals.
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
@@ -103,10 +104,8 @@ if (contactForm) {
         headers: { 'Accept': 'application/json' }
       });
       if (res.ok) {
-        status.textContent = "Thanks — we've got your message and will be in touch shortly.";
-        status.className = 'form-status show ok';
-        contactForm.reset();
-        button.textContent = 'Send message';
+        window.location.href = contactForm.dataset.redirect || 'thankyou.html';
+        return;
       } else {
         throw new Error('Form submission failed');
       }

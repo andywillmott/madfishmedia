@@ -8,7 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=6">
+<link rel="stylesheet" href="styles.css?v=8">
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -47,15 +48,16 @@
     <div class="wrap contact-grid">
       <div class="contact-info reveal">
         <span class="tc"><span class="dot"></span>Call us</span><br>
-        <a class="big-tel" href="tel:+61418120065">+61 418 120 065</a>
-        <p>Or send a message with the form — we'll get back to you quickly. Even if your project is still being fleshed out, we'd love to talk through what's possible.</p>
+        <a class="btn btn-solid" href="thankyou.html" style="margin-top:18px">Call or WhatsApp</a>
+        <p style="margin-top:20px">Or send a message with the form — we'll get back to you quickly. Even if your project is still being fleshed out, we'd love to talk through what's possible.</p>
         <p style="margin-top:20px"><a class="fb link-arrow" href="https://www.facebook.com/madfishmedia.au">Find us on Facebook →</a></p>
       </div>
-      <form id="contactForm" action="https://formspree.io/f/mkodwqqb" method="POST">
+      <form id="contactForm" action="https://formspree.io/f/mkodwqqb" method="POST" data-redirect="thankyou.html">
         <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
         <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
         <div class="field"><label for="f-msg">Tell us about your project</label><textarea id="f-msg" name="message" required></textarea></div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAD2D73Mk5GMofAmC"></div>
         <button class="btn btn-solid" type="submit" style="justify-self:start">Send message</button>
         <p id="formStatus" class="form-status" role="status"></p>
       </form>
@@ -70,6 +72,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=6"></script>
+<script src="script.js?v=8"></script>
 </body>
 </html>
