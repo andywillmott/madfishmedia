@@ -169,6 +169,17 @@ form{display:grid;gap:18px}
 .form-status.ok{color:#3a7d3a}
 .form-status.err{color:#b8433a}
 
+/* landing page service breakdown */
+.service-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:28px;margin-top:40px}
+.service-card{border-top:3px solid var(--gold);padding-top:18px}
+.service-card h3{font-size:19px;margin-bottom:8px}
+.service-card p{color:var(--ink-soft);font-size:15px;line-height:1.55}
+.service-card ul{list-style:none;margin-top:2px}
+.service-card ul li{color:var(--ink-soft);font-size:15px;padding:5px 0;border-bottom:1px solid var(--hairline)}
+.service-card ul li:last-child{border-bottom:none}
+.landing-intro{max-width:68ch}
+.landing-intro p{color:var(--ink-soft);margin-top:14px;font-size:17px;line-height:1.7}
+.landing-intro p:first-of-type{margin-top:20px}
 /* footer */
 footer{border-top:1px solid var(--hairline);padding:36px 0;margin-top:20px}
 .foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
