@@ -185,6 +185,8 @@ form{display:grid;gap:18px}
 footer{border-top:1px solid var(--hairline);padding:36px 0;margin-top:20px}
 .foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .foot p{font-size:14px;color:var(--muted)}
+.foot p a{color:var(--ink-soft);font-weight:600}
+.foot p a:hover{color:var(--gold)}
 .foot .fb{font-weight:600;font-size:14px;color:var(--ink-soft)}
 .foot .fb:hover{color:var(--gold)}
 
